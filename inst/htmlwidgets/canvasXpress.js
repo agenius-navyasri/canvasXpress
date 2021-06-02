@@ -7,7 +7,7 @@ HTMLWidgets.widget({
         c.id = el.id + '-cx';
         c.width = width;
         c.height = height;
-
+console.log('width: ' + width + ' height: ' + height);
         el.appendChild(c);
 
         return {
@@ -27,6 +27,7 @@ HTMLWidgets.widget({
                 }
             },
             resize: function(width, height) {
+console.log('resize');
                 cx = CanvasXpress.getObject(c.id);
                 if (cx) {
                     cx.setDimensions(width, height);
