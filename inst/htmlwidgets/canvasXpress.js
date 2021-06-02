@@ -27,7 +27,7 @@ console.log('width: ' + width + ' height: ' + height);
                 }
             },
             resize: function(width, height) {
-console.log('resize');
+console.log('resize width: ' + width + ' height: ' + height);
                 cx = CanvasXpress.getObject(c.id);
                 if (cx) {
                     cx.setDimensions(width, height);
