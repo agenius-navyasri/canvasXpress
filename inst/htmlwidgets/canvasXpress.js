@@ -17,6 +17,7 @@ console.log("id: " + el.id);
                     for (var i = 0; i < CanvasXpress.instances.length; i++) {
 console.log("destroying number: " + i + " with c.id = " + c.id);
                         if (CanvasXpress.instances[i].target.match(c.id)) {
+console.log('destroying # ' + i)
                             CanvasXpress.destroy(CanvasXpress.instances[i].target);
                         }
                     }
