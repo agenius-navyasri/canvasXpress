@@ -7,14 +7,15 @@ HTMLWidgets.widget({
         c.id = el.id + '-cx';
         c.width = width;
         c.height = height;
-console.log('width: ' + width + ' height: ' + height);
-        el.appendChild(c);
 
+        el.appendChild(c);
+console.log("id: " + el.id);
         return {
             id: c.id,
             renderValue: function(x) {
                 try{
                     for (var i = 0; i < CanvasXpress.instances.length; i++) {
+console.log("destroying number: " + i + " with c.id = " + c.id);
                         if (CanvasXpress.instances[i].target.match(c.id)) {
                             CanvasXpress.destroy(CanvasXpress.instances[i].target);
                         }
@@ -27,7 +28,6 @@ console.log('width: ' + width + ' height: ' + height);
                 }
             },
             resize: function(width, height) {
-console.log('resize width: ' + width + ' height: ' + height);
                 cx = CanvasXpress.getObject(c.id);
                 if (cx) {
                     cx.setDimensions(width, height);
