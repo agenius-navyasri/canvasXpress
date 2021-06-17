@@ -352,6 +352,7 @@ canvasXpress <- function(data = NULL,
                                            pretty    = pretty,
                                            digits    = digits)
 
+message('creating widget with width: ', width, ' and height: ', height)
     htmlwidgets::createWidget(name = "canvasXpress",
                               cx_object,
                               width  = width,
@@ -377,8 +378,12 @@ canvasXpress <- function(data = NULL,
 #'
 #' @export
 canvasXpressOutput <- function(outputId, width = "100%", height = "400px") {
-    htmlwidgets::shinyWidgetOutput(outputId, "canvasXpress",
-                                   width, height,  package = "canvasXpress")
+message('canvasXpressOutput id: ', outputId, 'width: ', width, ' height: ', height)
+    htmlwidgets::shinyWidgetOutput(outputId,
+                                   name       = "canvasXpress",
+                                   width      = width,
+                                   height     = height,
+                                   package    = "canvasXpress")
 }
 
 
@@ -409,5 +414,6 @@ renderCanvasXpress <- function(expr, env = parent.frame(), quoted = FALSE) {
     if (!quoted) {
         expr <- substitute(expr)
     } # force quoted
+
     htmlwidgets::shinyRenderWidget(expr, canvasXpressOutput, env, quoted = TRUE)
 }
